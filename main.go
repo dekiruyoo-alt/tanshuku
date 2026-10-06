@@ -14,6 +14,8 @@ import (
 	"github.com/lib/pq"
 )
 
+// test
+
 var db *sql.DB
 
 type ShortenRequest struct {
@@ -22,7 +24,7 @@ type ShortenRequest struct {
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-	fmt.Fprintln(w, "Encurtador no ar!")
+	fmt.Fprintln(w, "Pong! Shortener is up and running!")
 }
 
 func generateShort() string {
@@ -118,7 +120,7 @@ func main() {
 
 	log.Printf("Starting server on port %s...\n", port)
 	http.HandleFunc("GET /", helloHandler)
-	http.HandleFunc("POST /shorten", shortenHandler)
+	http.HandleFunc("POST /s", shortenHandler)
 	http.HandleFunc("GET /{tanshukukei}", redirectHandler)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
